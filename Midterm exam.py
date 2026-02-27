@@ -239,3 +239,12 @@ print("New string:     ", new_route)
 
 # The original is unchanged
 print("Still original: ", route)
+
+#Question 9
+a = 10
+a = a+2
+print(a*2)
+a = 19
+print(a+3)
+a = a//2
+#However, a = 9 because a//2 is an interger division, and 19//2 gives 9.
