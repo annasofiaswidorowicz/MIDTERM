@@ -158,3 +158,39 @@ def days_since_birthday_whole_years(birthday_str):
     return total_days
 
 print(days_since_birthday_whole_years("26-10-2006"))
+
+#Question 5
+def longest_word_ending_al(filename):
+    longest = ""  # will store the best word found so far
+
+#Open the file in read mode
+    fp = open(filename, "r", encoding="utf-8")
+
+    for line in fp:
+        #Replace common punctuation with spaces so words separate cleanly
+        line = line.replace(",", " ")
+        line = line.replace(".", " ")
+        line = line.replace("!", " ")
+        line = line.replace("?", " ")
+        line = line.replace(":", " ")
+        line = line.replace(";", " ")
+        line = line.replace('"', " ")
+        line = line.replace("(", " ")
+        line = line.replace(")", " ")
+
+        #Split the line into words (split() handles multiple spaces)
+        words = line.split()
+
+        for w in words:
+            w = w.lower()  #optional: makes matching case-insensitive
+
+            #Check if the word ends with "al"
+            if w.endswith("al"):
+                #If it's longer than the current best, update
+                if len(w) > len(longest):
+                    longest = w
+
+    fp.close()
+    return longest
+
+print(longest_word_ending_al("example.txt"))
