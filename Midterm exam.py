@@ -215,3 +215,27 @@ c = a + b
 print(c)
 d = "abc" * (c // 3)
 print(d)
+
+#Question 8
+# LIST = mutable (you can change an item inside it)
+packing_list = ["passport", "sunscreen", "swimsuit"]
+print("Before list:", packing_list)
+
+# Change ONE item in place (same list, edited)
+packing_list[1] = "sunscreen SPF50"
+print("After list: ", packing_list)
+
+
+# STRING = immutable (you cannot change a character inside it)
+route = "Caracas -> Los Roques"
+print("\nOriginal string:", route)
+
+# This would crash (strings don't allow item assignment):
+# route[0] = "X"
+
+# Instead, we create a NEW string:
+new_route = "M" + route[1:]
+print("New string:     ", new_route)
+
+# The original is unchanged
+print("Still original: ", route)
