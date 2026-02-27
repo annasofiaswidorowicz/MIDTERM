@@ -110,3 +110,51 @@ tests = [
 for t in tests:
     print(t, is_valid_url(t))
 
+#Question 4
+def days_since_birthday_whole_years(birthday_str):
+    """
+    birthday_str format: "DD-MM-YYYY"
+    Returns number of days passed since birthday counting ONLY full years
+    (excluding birth year and current year).
+    """
+
+#It's important to know if it's a leap year, therefore:
+    def is_leap(year):
+        # Leap year rules:
+        # - divisible by 400 -> leap
+        # - divisible by 100 -> not leap
+        # - divisible by 4 -> leap
+        if year % 400 == 0:
+            return True
+        if year % 100 == 0:
+            return False
+        return year % 4 == 0
+
+#Parse birthday in the format DD-MM-YYYY
+    parts = birthday_str.split("-")
+    birth_year = int(parts[2])
+
+#Ask the user for today's date
+    today_str = input("Enter today's date (DD-MM-YYYY): ")
+    today_parts = today_str.split("-")
+    current_year = int(today_parts[2])
+
+#Count full years between birthday and today's date
+    start_year = birth_year + 1
+    end_year = current_year - 1
+
+#If there are no full years in between, answer is 0
+    if start_year > end_year:
+        return 0
+
+#Sum the days in each full year
+    total_days = 0
+    for year in range(start_year, end_year + 1):
+        if is_leap(year):
+            total_days += 366
+        else:
+            total_days += 365
+
+    return total_days
+
+print(days_since_birthday_whole_years("26-10-2006"))
