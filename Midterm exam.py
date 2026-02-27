@@ -194,3 +194,6 @@ def longest_word_ending_al(filename):
     return longest
 
 print(longest_word_ending_al("example.txt"))
+
+#Question 6
+print((3+10**2/2) or (70.0))
